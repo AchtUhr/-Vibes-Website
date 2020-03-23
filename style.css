@@ -1,0 +1,412 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serifs;
+}
+body{
+    background: url("fond.png");
+}
+#wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 350vh;
+    max-width: 1300px;
+    margin: auto;
+
+/* en tête */
+
+}
+header{
+    height: 15vh;
+    display: flex;
+}
+header > nav, header > aside{
+    width: 100%;
+    margin: auto;
+}
+header > aside{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+header > nav{
+    display: flex;
+    flex: 2;
+    justify-content: flex-end;
+    
+}
+header > nav > a{
+    text-decoration: none;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 25px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0); /* border transparent -> règle pb nav qui bouge avec hover */
+}
+header > nav > a:hover{
+    border-bottom: white 2px solid;
+}
+
+/* Article 'Read More' */
+
+#readMore{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 45vh;
+    background: url('fondCity.png') fixed;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    
+}
+#readMore > button{
+    background: none;
+    align-self: center;
+    color: white;
+    border: 2px white solid;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    padding: 7px;
+    width: 170px;
+    margin: 20px;
+}
+#readMore > button:hover{
+    transition: 0.4s;
+    background-color: black;
+  }
+#readMore > h1{
+    font-size: 1.7em;
+    text-transform: uppercase;
+    margin: 20px;
+}
+
+/* 3 articles du main */
+
+main{
+    min-height: 42vh; /* min-height et non pas 'height' pour que conteneur s'aggrandissent quand l'accordeon déplié au max*/
+    display: flex;
+    background: white;
+}
+
+main > section {
+    width: 33.3333%;
+    padding: 60px;
+
+}
+main > section:hover {
+    transition: 0.6s;
+    background-color: rgb(255, 101, 101);
+    color: white;
+
+}
+#paragraph h3, #list h3{
+    font-size: 1.5em;
+}
+#paragraph p strong{
+    font-size: 1.2em;
+}
+#paragraph h3, #paragraph p{
+    margin: auto;
+}
+
+/* Galerie et grille */
+
+#galerie{
+    min-height: 55vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+#galerie > figure{
+    width: 25%;
+    height: 250px;
+    overflow: hidden;
+}
+#galerie > figure > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+#galerie > figure > img:hover{
+    width: 150%;
+    height: 150%;
+    transition: 0.5s;
+    object-fit: cover;
+    
+}
+.row1.col1{
+    grid-area: row1col1;
+ }
+ .row1.col1{
+     grid-area: row1col2;
+ }
+ .row1.col1{
+     grid-area: row1col3;
+ }
+ .row1.col1{
+     grid-area: row1col4;
+ }
+ .row2.col1{
+     grid-area: row2col1;
+ }
+ .row2.col1{
+     grid-area: row2col2;
+ }
+ .row2.col1{
+     grid-area: row2col3;
+ }
+ .row2.col1{
+     grid-area: row2col4;
+ }
+ .row3.col1{
+     height: 120px;
+     width: 100%;
+     background: white;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+ }
+ .row3.col1 > nav > a{
+     text-decoration: none;
+     font-weight: bold;
+     text-transform: uppercase;
+     color: grey;
+     margin-right: 15px;
+     
+ }
+ .row3.col1 > nav > a:hover{
+     color: black;
+     
+ }
+ .row3.col1 > button{
+     height: 40%;
+     background: none;
+     padding: 10px;
+     border: 2px solid black;
+     text-transform: uppercase;
+     cursor: pointer;   
+ }
+ .row3.col1 > button:hover{
+     transition: 0.7s;
+     color: white;
+     background: red;
+ }
+
+/* témoignages */
+
+#testimonials{
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+#testimonials > section {
+    height: 33.3333%;
+    background: white;
+    text-align: justify;
+}
+#testimonials > section:nth-child(1) {
+    display: flex;
+    flex-wrap: wrap; /* nécessaire à cause du titre h3 */
+    justify-content: center;
+    align-items: center;
+    
+}
+#testimonials > section:nth-child(1) > h3{
+    text-align: center;
+    font-size: 1.4em;
+    display: block;
+    margin-top: 5px;
+    text-transform: uppercase;
+    width: 100%; /* pour forcer l'icone client a passer à la ligne */
+}
+#testimonials > section:nth-child(1) > q{
+    width: 70%;
+    height: 50%;
+    margin-left: 20px;
+    font-style: italic;
+    font-size: 1.35em;
+}
+#testimonials > section:nth-child(1) > img[src="clientQuote.png"]{
+    width: 100px;
+    height: 100px;
+}
+#testimonials > section:nth-child(2) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+#testimonials > section:nth-child(2) > q{
+    width: 70%;
+    height: 50%;
+    margin-right: 20px;
+    font-style: italic;
+    font-size: 1.35em;
+}
+#testimonials > section:nth-child(2) > img[src="clientQuote.png"]{
+    width: 100px;
+    height: 100px;
+}
+#testimonials > section:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+}
+#testimonials > section:nth-child(3) > q{
+    width: 70%;
+    height: 50%;
+    margin-left: 20px;
+    font-style: italic;
+    font-size: 1.35em;
+}
+#testimonials > section:nth-child(3) > img[src="clientQuote.png"]{
+    width: 100px;
+    height: 100px;
+}
+#testimonials > section:nth-child(3) > button{
+    height: 50px;
+    width: 160px;
+    text-transform: uppercase;
+    padding: 10px;
+    border: 2px solid black;
+    margin-left: 120px;
+    background: white;
+}
+#testimonials > section:nth-child(3) > button:hover{
+    color: white;
+    transition: 0.5s;
+    border: 2px solid red;
+    color: red;
+    cursor: pointer;
+}
+
+/* lien vers le store */
+
+#store{
+    min-height: 42vh;
+    background: url('fondEspace.png') fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+#store > h3{
+    width: 50%;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    padding: 40px;
+}
+#store > p{
+    width: 50%;
+    font-size: 1.2em;
+}
+#store > button{
+    margin-top: 60px;
+    width: 250px;
+    height: 35px;
+    background: none;
+    color: red;
+    font-weight: bold;
+    border: 2px solid red;
+
+}
+#store > button:hover{
+    transition: 0.5s;
+    background: white;
+    cursor: pointer;
+}
+
+
+/* formulaire */
+
+#contact{
+    min-height: 45vh;
+    background: white;
+    display: flex; /* pour centrer formulaire */
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 70%;
+    height: 75%;
+    grid-row-gap: 5px;
+    grid-column-gap: 25px;
+    display: grid;
+    grid-template: 
+        "titre titre" 80px
+        "name subject" 70px
+        "email message" 70px
+        "tel message" 70px;
+}
+/* grid form elements */
+#formTitle {grid-area: titre; text-align: center; text-transform: uppercase;} 
+#name{grid-area: name;} 
+#email{grid-area:email;} 
+#subject{grid-area:subject;} 
+#tel{grid-area:tel;} 
+#message{grid-area: message;}
+
+form > p > input{
+    width: 100%;
+    padding: 8px 14px;
+    margin: 3px 0;
+    border: 1px solid #ccc;
+    background: lightgrey;
+    border-radius: 4px;
+}
+form > p > textarea{
+    width: 100%;
+    height: 77%;
+    padding: 8px 14px;
+    margin: 3px 0;
+    border: 1px solid #ccc;
+    background: lightgrey;
+    border-radius: 4px;
+}
+
+
+/* pied de page */ 
+
+footer{
+    height: 30vh;
+    display: flex;
+}
+footer > section{
+
+    width: 100%;
+}
+
+/* accordion */
+
+.accordion {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    border: 1px black solid;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .active, .accordion:hover {
+    background-color: none;
+  }
+  
+  .panel {
+    padding: 0 18px;
+    display: none;
+    background-color: rgb(255, 101, 101);
+    overflow: hidden;
+  }

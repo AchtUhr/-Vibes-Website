@@ -1,0 +1,23 @@
+header nav{
+    
+}
+main{
+    min-height: auto;
+    flex-direction: column;
+}
+main > section {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+
+}
+#galerie{
+    min-height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#galerie > figure{
+    width: 50%;
+    height: 300px;
+    overflow: hidden;
+}
