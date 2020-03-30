@@ -25,3 +25,47 @@ main > section {
 #testimonials {
     min-height: 900px;
 }
+#testimonials > section {
+    display: initial;
+   
+}
+#testimonials > section:nth-child(1) > q,
+#testimonials > section:nth-child(2) > q,
+#testimonials > section:nth-child(3) > q{
+    width: 90%;
+    height: 50%;
+    margin-left: 0px;
+    font-style: italic;
+    font-size: 1.2em;
+}
+#testimonials > section > img[src="clientQuote.png"] {
+    display: none;
+}
+#store > h3{
+    width: 90%;
+    padding: 20px;
+}
+#store > p{
+    width: 90%;
+    text-align: justify;
+}
+#contact{
+    min-height: 40em;
+    background: white;
+    display: flex; /* pour centrer formulaire */
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 85%;
+    height: 75%;
+    grid-row-gap: 5px;
+    display: grid;
+    grid-template: 
+        "titre" 80px
+        "name" 70px
+        "subject" 70px
+        "email" 70px
+        "tel" 70px
+        "message" 150px;
+}

@@ -10,43 +10,77 @@ body{
 #wrapper{
     display: flex;
     flex-direction: column;
-    height: 350vh;
+    height: 210em;
     max-width: 1300px;
     margin: auto;
 
 /* en tête */
+.menu{
+  background: #222;
+  color: #fff;
+  height: 8em;
+  position: relative;
+}
 
+.menu .title{
+  font-size:30px;
+  font-weight:bold;
+  line-height:50px;
+  padding:0 20px;
+  text-transform:uppercase;
 }
-header{
-    height: 15vh;
-    display: flex;
+
+.menu .burger{
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  color:inherit;
+  cursor:pointer;
+  font-family:'Material Icons';
+  font-size:30px;
+  line-height:50px;
+  margin:0;
+  outline:0;
+  padding:0;
+  position:absolute;
+  text-align:center;
+  top:0;
+  right:10px;
+  width:50px;
 }
-header > nav, header > aside{
-    width: 100%;
-    margin: auto;
+
+.menu .burger:before{
+  content:'menu';
 }
-header > aside{
-    display: flex;
-    flex: 1;
-    justify-content: center;
+
+.menu .burger:checked:before{
+  content:'close';
 }
-header > nav{
-    display: flex;
-    flex: 2;
-    justify-content: flex-end;
-    
+
+.menu nav
+{
+  background:inherit;
+  font-size:20px;
+  font-weight:bold;
+  height:0;
+  overflow:hidden;
+  text-transform:uppercase;
+  transition:height .2s;
 }
-header > nav > a{
-    text-decoration: none;
-    font-size: 1.1em;
-    text-transform: uppercase;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-right: 25px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0); /* border transparent -> règle pb nav qui bouge avec hover */
+
+.menu nav > *
+{
+  display:block;
+  letter-spacing:1px;
+  line-height:2.5;
+  padding:0 20px;
+  width:100%;
 }
-header > nav > a:hover{
-    border-bottom: white 2px solid;
+
+.menu nav input
+{
+  background:#111;
+  border:none;
 }
 
 /* Article 'Read More' */
@@ -55,7 +89,7 @@ header > nav > a:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 45vh;
+    height: 24em;
     background: url('fondCity.png') fixed;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -87,7 +121,7 @@ header > nav > a:hover{
 /* 3 articles du main */
 
 main{
-    min-height: 42vh; /* min-height et non pas 'height' pour que conteneur s'aggrandissent quand l'accordeon déplié au max*/
+    min-height: 25em; /* min-height et non pas 'height' pour que conteneur s'aggrandissent quand l'accordeon déplié au max*/
     display: flex;
     background: white;
 }
@@ -97,7 +131,8 @@ main > section {
     padding: 60px;
 
 }
-main > section:hover {
+main > section:first-child:hover,
+section:nth-child(2):hover {
     transition: 0.6s;
     background-color: rgb(255, 101, 101);
     color: white;
@@ -116,28 +151,38 @@ main > section:hover {
 /* Galerie et grille */
 
 #galerie{
-    min-height: 55vh;
+    min-height: 36em;
     display: flex;
     flex-wrap: wrap;
 }
 #galerie > figure{
     width: 25%;
     height: 250px;
-    overflow: hidden;
+    position: relative;
+}
+#galerie figcaption{
+    position: absolute; /* Ainsi se met à l'intérieur du parent (figure) qui est en relative */
+    bottom: 0; /* nécessaire */
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 2em;
+    padding: 0.5em; 
+    opacity: 0;
+    transition: height 1s, opacity 1s;
+}
+#galerie > figure:hover > figcaption{
+    height: 30%;
+    opacity: 1;
+    
 }
 #galerie > figure > img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
+    transition: 
 }
-#galerie > figure > img:hover{
-    width: 150%;
-    height: 150%;
-    transition: 0.5s;
-    object-fit: cover;
-    
-}
+
 .row1.col1{
     grid-area: row1col1;
  }
@@ -199,7 +244,7 @@ main > section:hover {
 /* témoignages */
 
 #testimonials{
-    min-height: 70vh;
+    min-height: 41em;
     display: flex;
     flex-direction: column;
 }
@@ -288,7 +333,7 @@ main > section:hover {
 /* lien vers le store */
 
 #store{
-    min-height: 42vh;
+    min-height: 25em;
     background: url('fondEspace.png') fixed;
     display: flex;
     flex-direction: column;
@@ -326,7 +371,7 @@ main > section:hover {
 /* formulaire */
 
 #contact{
-    min-height: 45vh;
+    min-height: 26em;
     background: white;
     display: flex; /* pour centrer formulaire */
     justify-content: center;
@@ -407,6 +452,11 @@ footer > section{
   .panel {
     padding: 0 18px;
     display: none;
-    background-color: rgb(255, 101, 101);
     overflow: hidden;
+  }
+
+  .accordion:hover {
+    transition: 0.5s;
+    background-color: rgb(255, 101, 101);
+    color: white;
   }
